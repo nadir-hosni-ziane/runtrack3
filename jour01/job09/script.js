@@ -21,7 +21,3 @@ function tri(nombres, order) {
 window.onload = function() {
     console.log(tri([1, 28, 12, 76, 234, 768, 3], 'desc'));
 }
-
-// function croissant(x, y){
-//    return x - y;
-// }
