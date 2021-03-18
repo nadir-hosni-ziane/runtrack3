@@ -7,9 +7,9 @@
                 </div>";
     }else {
         $div = '<div>
-                    <a href="pages/connexion.php"><button id="button2">CONNEXION</button></a>
+                    <a href="pages/signin.php"><button id="button2">CONNEXION</button></a>
                     <br>
-                    <a href="pages/inscription.php"><button id="button2">INSCRIPTION</button></a>
+                    <a href="pages/signup.php"><button id="button2">INSCRIPTION</button></a>
                 </div>';
     }
 ?>

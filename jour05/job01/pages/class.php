@@ -31,16 +31,12 @@ class utilisateurs{
 
     public function signUpSuccess($nom, $prenom, $email, $password){
 
-        $users = $this->pdo->prepare("INSERT INTO utilisateurs (nom, prenom, email, password) VALUES('$nom', '$prenom', '$email', '$password')");
+        $users = $this->pdo->prepare("INSERT INTO utilisateurs (nom, prenom, email, password) VALUES ('$nom', '$prenom', '$email', '$password')");
         $users -> execute();
-        $row = $users->rowCount();
-        
-        if ($row > 0) {
-            return "oui";
-        }else return "non";
+
     }
 
-    public function connexion($email,$password){
+    public function signInVerify($email,$password){
 
         $users = $this->pdo->prepare("SELECT * FROM utilisateurs WHERE email='$email' AND password='$password'");
         $users -> execute();
@@ -53,7 +49,6 @@ class utilisateurs{
         }else return "non";
         
     }
-
 
 }
 

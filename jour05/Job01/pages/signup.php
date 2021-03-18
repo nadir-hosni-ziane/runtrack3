@@ -1,29 +1,43 @@
 <?php
+    session_start();
     require '../pages/class.php';
     $user = new utilisateurs();
+
     
-    if ($_POST['connexion']) {
+    
+    if ($_POST['signUpVerify']) {
         $email = $_POST['email'];
-        $password = $_POST['password'];
-        echo $user->connexion($email, $password);
+        echo $user->signUpVerify($email);
         exit();
     }
 
-    if($_SESSION['login']){
+    if ($_POST['signUpSuccess']) {
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        var_dump($password);
+        echo $user->signUpSuccess($nom, $prenom, $email, $password);
+        exit();
+    }
+
+    if ($_SESSION['login']) {
         header("location:../");
         exit();
     }
+
+
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/style.css">
-    <title>Connexion</title>
+    <title>Document</title>
 </head>
 
 <body>
@@ -35,15 +49,19 @@
             <div>
                 <ul id="error">
                 </ul>
-                <h1>Member Connexion</h1>
+                <h1>Member Sign Up</h1>
                 <br>
                 <form action="" method="post">
+                    <input type="text" name="nom" id="nom" placeholder="Votre nom">
+                    <br><br>
+                    <input type="text" name="prenom" id="prenom" placeholder="Votre Prénom">
+                    <br><br>
                     <input type="text" name="email" id="email" placeholder="Votre email">
                     <br><br>
                     <input type="password" name="password" id="password" placeholder="Votre mot de pass">
                 </form>
                 <br>
-                <button id="button2">LOGIN</button>
+                <button id="button">S'INSCRIRE</button>
             </div>
         </section>
     </main>
